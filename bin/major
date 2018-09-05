@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+source /scripts/version.sh
+
+git pull -q
+if [ $(git status | grep "Changes" -c) -gt 0 ]; then
+    echo "Commit changes first!"
+    exit 1
+fi
+
+/scripts/build.sh
+tag=$(latest)
+new="$(($(major $tag) + 1)).0.0"
+git tag $new
+git checkout master
+git branch -D temp_build
+echo "Project was tagged with version $new"
