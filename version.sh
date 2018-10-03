@@ -32,3 +32,15 @@ latest()
 
     echo $newest
 }
+
+build()
+{
+    git pull -q
+    if [ -f /package/bin/build ]; then
+        /package/bin/build
+    fi
+
+    git add -A
+    git commit -m "Build $1"
+    echo "Build commit created"
+}

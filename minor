@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -e
+source /scripts/build.sh
+source /scripts/version.sh
+tag=$(latest)
+new="$(major $tag).$(($(minor $tag) + 1)).0"
+build $new

@@ -15,10 +15,9 @@ RUN git init \
     && git config --global user.email "package@mvfglobal.com"
 
 COPY version.sh /scripts/version.sh
-COPY build.sh /scripts/build.sh
-COPY bin/patch /usr/local/bin/patch
-COPY bin/minor /usr/local/bin/minor
-COPY bin/major /usr/local/bin/major
+COPY patch /usr/local/bin/patch
+COPY minor /usr/local/bin/minor
+COPY major /usr/local/bin/major
 COPY tests.sh /usr/local/bin/tests
 COPY coverage.sh /usr/local/bin/coverage
 COPY shape /usr/local/bin/shape
