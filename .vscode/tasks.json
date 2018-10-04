@@ -6,7 +6,7 @@
     {
       "label": "build container",
       "type": "shell",
-      "command": "docker build -t drupsys/phpspec-package-alpine .",
+      "command": "docker build -t drupsys/phpspec-package .",
       "group": {
         "kind": "build",
         "isDefault": true
