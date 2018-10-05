@@ -6,14 +6,7 @@ URI=$2
 CLASS=$3
 LINE=$4
 
-if [ ${arr[1]} = "lint" ]; then
-    vendor/bin/php-cs-fixer fix
-    vendor/bin/phpcbf --standard=mvf_ruleset.xml
-    vendor/bin/phpcs --standard=mvf_ruleset.xml
-elif [ ${arr[1]} = "unit" ]; then
-    vendor/bin/php-cs-fixer fix
-    vendor/bin/phpcbf --standard=mvf_ruleset.xml
-    vendor/bin/phpcs --standard=mvf_ruleset.xml
+if [ ${arr[1]} = "unit" ]; then
 	if [ "" != "${URI}" ]; then
 		vendor/bin/phpspec run spec/${URI} -f pretty -v
 	elif [ "" != "${CLASS}" ] && [ "" != "${LINE}" ]; then
